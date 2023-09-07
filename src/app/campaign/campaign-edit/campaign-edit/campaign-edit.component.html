@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>Campaign Save / Update</h3>
+  <form [formGroup]="mainForm" (ngSubmit)="SaveOrUpdate()" class="custom-form">
+
+      <div class="form-group">
+          <input type = "text" formControlName="CampaignName" class="form-control" placeholder="Campaign Name">
+          <div *ngIf="mainForm.get('CampaignName')?.hasError('required') && mainForm.get('CampaignName')?.dirty" class="error-message">
+            Campaign Name Required!</div>
+      </div>
+
+      <div class="form-group">
+          <textarea formControlName="CampaignCode" class="form-control" placeholder="Campaign Code"></textarea>
+          <div *ngIf="mainForm.get('CampaignCode')?.hasError('required') && mainForm.get('CampaignCode')?.dirty" class="error-message">
+            Campaign Code Required!</div>
+      </div>
+
+      <div class="form-group">
+        <input type = "text" formControlName="CampaignDiscountRate" class="form-control" placeholder="Campaign Discount Rate">
+        <div *ngIf="mainForm.get('CampaignDiscountRate')?.hasError('required') && mainForm.get('CampaignDiscountRate')?.dirty" class="error-message">Campaign Discount Rate Required!</div>
+    </div>
+
+    <div class="form-group">
+      <h6>Start Date</h6>
+      <input type = "date" formControlName="StartDate" class="form-control" placeholder="Start Date">
+      <div *ngIf="mainForm.get('StarDate')?.hasError('required') && mainForm.get('StartDate')?.dirty" class="error-message">Başlangıç Tarihi Zorunludur!</div>
+  </div>
+
+  <div class="form-group">
+    <h6>End Date</h6>
+    <input type = "date" formControlName="EndDate" class="form-control" placeholder="End Date">
+    <div *ngIf="mainForm.get('EndDate')?.hasError('required') && mainForm.get('EndDate')?.dirty" class="error-message">Bitiş Tarihi Zorunludur!</div>
+</div>
+
+
+      <button type ="submit" class="btn btn-primary">Save</button>
+      <div id="main-page-button" type="button" class="btn btn-primary"><a class="nav-link" href="/campaigns">Back</a></div>
+
+  </form>
+</div>
+
